@@ -31,7 +31,7 @@ export default class CarryVirus extends Component {
           if (this.props.isCarrier){
               this.setState({
                 disable: true,
-                text:'אני נשא של הנגיף'
+                text:'אני נשא קטלני של הנגיף'
               })
           }
           else{
