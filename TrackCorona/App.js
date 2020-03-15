@@ -1,19 +1,35 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import { Text, View, TouchableOpacity } from 'react-native';
+import FindMe from './src/components/FindMe';
+import * as Device from 'expo-device';
+import CarryVirus from './src/components/CarryVirus';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+export default class HelloWorldApp extends Component {
+  state = {
+    userName: Device.deviceName,
+    isCarrier: false,
+    status: 0,
+  }
+  constructor(props) {
+    super(props);
+    this.getUserData = this.getUserData.bind(this);
+    this.getUserData();
+  }
+  getUserData = async function () {
+    console.log('getUserDetails');
+    let response = await fetch('http://192.168.1.166:5000/getUserDetails/' + this.state.userName);
+    let data = await response.json();
+    if (data && data.recordset && data.recordset[0] && data.recordset[0].Status == 3) {
+      this.setState({ isCarrier: true })
+    }
+  }
+  render() {
+    let isCarrier = this.state.isCarrier;
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <CarryVirus isCarrier={isCarrier} />
+      </View>
+    );
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
