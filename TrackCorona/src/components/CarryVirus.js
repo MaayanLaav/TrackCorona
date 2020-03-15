@@ -19,7 +19,7 @@ export default class CarryVirus extends Component {
     state = {
         deviceName: Device.deviceName,
         disable: false,
-        text: 'אני מצהיר שנדבקתי בנגיף'
+        text: 'אני מצהיר שנדבתייי בנגיף'
     };
     constructor(props) {
         super(props);
