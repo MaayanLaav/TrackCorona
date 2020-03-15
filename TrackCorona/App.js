@@ -1,35 +1,30 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
-import FindMe from './src/components/FindMe';
-import * as Device from 'expo-device';
-import CarryVirus from './src/components/CarryVirus';
+import HomeScreen from './src/screens/HomeScreen';
+import { createAppContainer } from 'react-navigation';
+import {createBottomTabNavigator} from 'react-navigation-tabs';
 
-export default class HelloWorldApp extends Component {
-  state = {
-    userName: Device.deviceName,
-    isCarrier: false,
-    status: 0,
-  }
-  constructor(props) {
-    super(props);
-    this.getUserData = this.getUserData.bind(this);
-    this.getUserData();
-  }
-  getUserData = async function () {
-    console.log('getUserDetails');
-    let response = await fetch('http://192.168.1.166:5000/getUserDetails/' + this.state.userName);
-    let data = await response.json();
-    if (data && data.recordset && data.recordset[0] && data.recordset[0].Status == 3) {
-      this.setState({ isCarrier: true })
+const bottomTabNavigator = createBottomTabNavigator(
+  {
+    Home:  {
+      screen: HomeScreen,    
+    },
+    Explore: {
+      screen: HomeScreen,
+    },
+  },
+  {
+    initialRouteName: 'Home',
+    tabBarOptions: {
+      activeTintColor: '#eb6e3d'
     }
   }
-  render() {
-    let isCarrier = this.state.isCarrier;
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <CarryVirus isCarrier={isCarrier} />
-      </View>
+);
+const AppContainer = createAppContainer(bottomTabNavigator);
+
+export default class HelloWorldApp extends Component {
+  render(){
+    return(
+      <AppContainer/>
     );
   }
 }
-
