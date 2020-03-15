@@ -59,9 +59,9 @@ export default class FindMe extends Component {
         }
         return (
             <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-                <Text>Hey {deviceName} </Text>
-                <Text>Longitude: {longit}</Text>
-                <Text>Latitude: {latit}</Text>
+                <Text>שלום {deviceName} </Text>
+                <Text>קו אורך: {longit}</Text>
+                <Text>קו רוחב: {latit}</Text>
             </View>
         );
     }
