@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, Alert, StyleSheet, Button } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faHeartbeat } from '@fortawesome/free-solid-svg-icons';
+import { faHeartbeat, faExclamationTriangle,faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 export default class HeaderStatus extends Component {
   state = {
     status: 0,
@@ -20,19 +20,24 @@ export default class HeaderStatus extends Component {
   render() {
     let status = this.props.status
     let text = 'בריא'
-    let iconName = 'heartbeat'
+    let iconName = faHeartbeat;
+    let colorIcon = 'black';
     switch (status) {
       case  1: {
         text = 'מעגל שני'
-        //iconName = 'faHeartbeat'
+        iconName = faExclamationTriangle
+        colorIcon = 'orange';
       }
         break;
       case  2: {
         text = 'מעגל ראשון';
+        iconName = faExclamationCircle;
+        colorIcon = 'red'
       }
         break;
       case 3: {
         text = 'נושא את הנגיף'
+        colorIcon = 'red'
       }
         break;
       default: {
@@ -40,7 +45,7 @@ export default class HeaderStatus extends Component {
     }
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-          <FontAwesomeIcon icon= {faHeartbeat}  size={ 22} color={'orange'} />
+          <FontAwesomeIcon icon= {faExclamationCircle}  size={ 22} color={colorIcon} />
         <Text> {text} </Text>
       </View>
     );
