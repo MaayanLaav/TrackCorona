@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, Alert,StyleSheet,Button } from 'react-native';
 import * as Device from 'expo-device';
+import {serverUrl} from '../consts/constants';
 
 const styles = StyleSheet.create({
     disableInfectedButton: {
@@ -53,7 +54,8 @@ export default class CarryVirus extends Component {
                 style: 'cancel',
               },
               {text: 'כן', onPress: () => {
-                fetch('http://192.168.1.166:5000/carryVirus', {
+                console.log(serverUrl);
+                fetch(serverUrl+ 'carryVirus', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',

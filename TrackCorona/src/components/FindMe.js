@@ -3,6 +3,7 @@ import { Text, View, TouchableOpacity, Alert } from 'react-native';
 import * as Permissions from 'expo-permissions';
 import * as Location from 'expo-location';
 import * as Device from 'expo-device';
+import {serverUrl} from '../consts/constants';
 export default class FindMe extends Component {
     state = {
         location: null,
@@ -13,7 +14,7 @@ export default class FindMe extends Component {
         super(props);
         setInterval(() => {
            this.findCurrentLocationAsync()
-        }, 1000);
+        }, 10000);
     }
     findCurrentLocationAsync = async function () {
         let { status } = await Permissions.askAsync(Permissions.LOCATION)
@@ -29,7 +30,7 @@ export default class FindMe extends Component {
             console.log('Latitude ' + location.coords.latitude)
             console.log('TimeStamp ' + location.timestamp)
             this.setState({ location });
-            fetch('http://192.168.1.166:5000/insertLocation', {
+            fetch(serverUrl + 'insertLocation', {
                 method: 'POST',
                 headers: {
                   Accept: 'application/json',

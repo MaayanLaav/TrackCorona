@@ -5,7 +5,7 @@ import HelpScreen from './src/screens/HelpScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
 import { createAppContainer } from 'react-navigation';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
-
+const Tab = createBottomTabNavigator();
 const bottomTabNavigator = createBottomTabNavigator(
   {
     Home:  {
@@ -30,9 +30,13 @@ const bottomTabNavigator = createBottomTabNavigator(
 );
 const AppContainer = createAppContainer(bottomTabNavigator);
 
-export default class HelloWorldApp extends Component {
+export default class App extends Component {
   render(){
     return(
+      <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Help" component={HelpScreen} />
+    </Tab.Navigator>
       <AppContainer/>
     );
   }

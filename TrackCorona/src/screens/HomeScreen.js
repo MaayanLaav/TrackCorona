@@ -3,6 +3,8 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import FindMe from '../components/FindMe';
 import * as Device from 'expo-device';
 import CarryVirus from '../components/CarryVirus';
+import {serverUrl} from '../consts/constants';
+console.log(serverUrl)
 
 export default class HomeScreen extends Component {
     state = {
@@ -17,7 +19,7 @@ export default class HomeScreen extends Component {
       }
       getUserData = async function () {
         console.log('getUserDetails');
-        let response = await fetch('http://192.168.1.166:5000/getUserDetails/' + this.state.userName);
+        let response = await fetch(serverUrl+'getUserDetails/' + this.state.userName);
         let data = await response.json();
         if (data && data.recordset && data.recordset[0] && data.recordset[0].Status == 3) {
           this.setState({ isCarrier: true })
