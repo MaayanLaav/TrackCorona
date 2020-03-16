@@ -5,22 +5,34 @@ import {serverUrl} from '../consts/constants';
 
 const styles = StyleSheet.create({
     disableInfectedButton: {
-      color: 'black',
-      fontWeight: 'bold',
-      fontSize:10,
+      height: 40, 
+      width: 150,  
+      backgroundColor:"#bababa", 
+      justifyContent: "center", 
+      alignItems: "center",
+      borderRadius: 50
     },
     enableInfectedButton: {
-      color: 'black',
-      fontWeight: 'bold',
-      fontSize:10,
+      height: 40, 
+      width: 150,  
+      backgroundColor:"#ff5f2e", 
+      justifyContent: "center", 
+      alignItems: "center",
+      borderRadius: 50
     },
+
+    text: {
+      color: 'white',
+      fontWeight: 'bold'
+    }
+
   });
 
 export default class CarryVirus extends Component {
     state = {
         deviceName: Device.deviceName,
         disable: false,
-        text: 'אני מצהיר שנדבקתי בנגיף'
+        text: "מצהיר שנדבקתי"
     };
     constructor(props) {
         super(props);
@@ -32,13 +44,13 @@ export default class CarryVirus extends Component {
           if (this.props.isCarrier){
               this.setState({
                 disable: true,
-                text:'אני נשא של הנגיף'
+                text:'הצהרתי שנדבקתי'
               })
           }
           else{
             this.setState({
                 disable: true,
-                text:'אני מצהיר שנדבקתי בנגיף'
+                text:"מצהיר שנדבקתי"
               })
           }
         }
@@ -70,7 +82,7 @@ export default class CarryVirus extends Component {
                   this.props.callbackFunc(3);
                   this.setState({
                     disable: true,
-                    text:'אני נשא של הנגיף'
+                    text:"הצהרתי שנדבקתי"
                     
                 })}
                 ).catch((err) => console.error(err));
@@ -83,11 +95,10 @@ export default class CarryVirus extends Component {
     render() {
         let text = this.state.text;
         let disabledButton = this.state.disable;
-        let navigation = this.props.navigation;
         return (
             <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-                <TouchableOpacity onPress={this.setUserAsCarrier} disabled={disabledButton}>
-                    <Text style={disabledButton ? styles.disableInfectedButton : styles.enableInfectedButton} > {text} </Text>
+                <TouchableOpacity style= {disabledButton ? styles.disableInfectedButton : styles.enableInfectedButton} onPress={this.setUserAsCarrier} disabled={disabledButton}>
+                    <Text style={styles.text} > {text} </Text>
                 </TouchableOpacity>
             </View>
         );

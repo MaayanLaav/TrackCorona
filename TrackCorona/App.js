@@ -42,10 +42,10 @@ export default class App extends Component {
             <HeaderTitle />
         </View>
         {/* Header Status and Actions */}
-        <View style={{ flex: 4, justifyContent: 'center', backgroundColor: '#333333' }}>
+        <View style={{ flex: 3, justifyContent: 'center', alignItems: "center", backgroundColor: '#333333' }}>
           <HeaderActions />
         </View>
-        <View style={{ flex: 6, justifyContent: 'center' }}>
+        <View style={{ flex: 9, justifyContent: 'center' }}>
         </View>
         <View style={{ flex: 2, justifyContent: 'center' }}>
           <Navigator />

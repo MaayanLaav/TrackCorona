@@ -44,9 +44,9 @@ export default class HeaderStatus extends Component {
       }
     }
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-          <FontAwesomeIcon icon= {faExclamationCircle}  size={ 22} color={colorIcon} />
-        <Text> {text} </Text>
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center"}}>
+        <FontAwesomeIcon icon= {iconName}  size={ 40} color={colorIcon} />
+        <Text style={{fontSize: 16}}> {text} </Text>
       </View>
     );
   }

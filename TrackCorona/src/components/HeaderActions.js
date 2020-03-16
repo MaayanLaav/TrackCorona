@@ -35,9 +35,13 @@ export default class HeaderActions extends Component {
     let status = this.state.status;
     let isCarrier = status == 3;
     return (
-      <View style={{ flex: 1, justifyContent: 'center' }}>
+      <View style={{ flex: 1, width: 320, marginTop: -30, borderRadius:25, justifyContent: 'center', alignItems: "center" ,backgroundColor: "white"}}>
+        <View style={{ flex: 3}} >
           <HeaderStatus status={status} />
+        </View>
+        <View style={{ flex:2 }} >
           <CarryVirus isCarrier={isCarrier} callbackFunc={this.updateStatus} />
+        </View>
       </View>
     );
   }
