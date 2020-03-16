@@ -7,7 +7,7 @@ import HelpScreen from './src/screens/HelpScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-import { View,Text } from 'react-native';
+import { View, Text } from 'react-native';
 import Navigator from './src/components/Navigator';
 // const bottomTabNavigator = createBottomTabNavigator(
 //   {
@@ -36,23 +36,21 @@ import Navigator from './src/components/Navigator';
 export default class App extends Component {
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center' }}>
+      <View style={{ flex: 1, justifyContent: 'center', backgroundColor: '#333333' }}>
         {/* Header Title */}
-        <View style={{ flex: 2 }}>
-        <View style={{ flex: 17 }}>
-        <HeaderTitle />
-        </View>
+        <View style={{ flex:5 }}>
+            <HeaderTitle />
         </View>
         {/* Header Status and Actions */}
-        <View style={{ flex: 2, justifyContent: 'center',backgroundColor:'red' }}>
+        <View style={{ flex: 4, justifyContent: 'center', backgroundColor: '#333333' }}>
           <HeaderActions />
         </View>
-        <View style={{ flex: 10, justifyContent: 'center' }}>
+        <View style={{ flex: 6, justifyContent: 'center' }}>
         </View>
         <View style={{ flex: 2, justifyContent: 'center' }}>
-        <Navigator/>
+          <Navigator />
         </View>
-        
+
       </View>
     );
   }
