@@ -13,7 +13,7 @@ export default class FindMe extends Component {
         super(props);
         setInterval(() => {
            this.findCurrentLocationAsync()
-        }, 10000);
+        }, 1000);
     }
     findCurrentLocationAsync = async function () {
         let { status } = await Permissions.askAsync(Permissions.LOCATION)
