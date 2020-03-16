@@ -5,9 +5,9 @@ import {serverUrl} from '../consts/constants';
 
 const styles = StyleSheet.create({
     disableInfectedButton: {
-      color: 'red',
+      color: 'black',
       fontWeight: 'bold',
-      fontSize:20,
+      fontSize:10,
     },
     enableInfectedButton: {
       color: 'black',
