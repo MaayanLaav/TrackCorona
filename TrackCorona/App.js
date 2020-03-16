@@ -8,6 +8,7 @@ import SettingsScreen from './src/screens/SettingsScreen';
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { View,Text } from 'react-native';
+import Navigator from './src/components/Navigator';
 // const bottomTabNavigator = createBottomTabNavigator(
 //   {
 //     Home:  {
@@ -51,10 +52,10 @@ export default class App extends Component {
         <View style={{ flex: 10, justifyContent: 'center' }}>
         </View>
         <View style={{ flex: 2, justifyContent: 'center' }}>
+        <Navigator/>
         </View>
         
       </View>
-
     );
   }
 }
