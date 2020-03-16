@@ -10,9 +10,7 @@ export default class HeaderTitle extends Component {
           source={require('../assests/images/pakar.png')}
           />
               <View style={{ flex:1,backgroundColor:'#578feb',flexDirection: 'row',justifyContent:'center'}}>
-              <Text style={{color:'white',fontWeight:'bold',fontSize:40,fontStyle:'italic'}}>י</Text>
-              <Text style={{color:'white',fontWeight:'bold',fontSize:40,fontStyle:'italic'}}> ח</Text> 
-              <Text style={{color:'white',fontWeight:'bold',fontSize:40,fontStyle:'italic'}}> ד</Text>
+              <Text style={{color:'white',fontWeight:'bold',fontSize:40,fontStyle:'italic'}}>יחד</Text>
               </View>
           </View>
         );

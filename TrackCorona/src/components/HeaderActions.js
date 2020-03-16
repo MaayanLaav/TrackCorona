@@ -32,7 +32,7 @@ export default class HeaderActions extends Component {
         return (
           <View style={{ flex: 1,flexDirection: 'row',justifyContent:'center'}}>
                 <View style={{ flex: 1,justifyContent:'center'}}> 
-                <HeaderStatus status ={status} dateOfDiagnosis = {}/>
+                <HeaderStatus status ={status}/>
               </View>
               <View style={{ flex: 1,justifyContent:'center'}}> 
                 <CarryVirus isCarrier={isCarrier}/> 
