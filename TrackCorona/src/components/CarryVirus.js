@@ -54,6 +54,7 @@ export default class CarryVirus extends Component {
                 style: 'cancel',
               },
               {text: 'כן', onPress: () => {
+               
                 console.log(serverUrl);
                 fetch(serverUrl+ 'carryVirus', {
                     method: 'POST',
@@ -65,9 +66,12 @@ export default class CarryVirus extends Component {
                         deviceName: this.state.deviceName,
                         datetime: new Date().toLocaleString("en-US", {timeZone: "Asia/Jerusalem"})
                     }),
-                }).then((response) => {this.setState({
+                }).then((response) => {
+                  this.props.callbackFunc(3);
+                  this.setState({
                     disable: true,
                     text:'אני נשא של הנגיף'
+                    
                 })}
                 ).catch((err) => console.error(err));
               }

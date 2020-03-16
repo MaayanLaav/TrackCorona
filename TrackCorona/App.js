@@ -39,8 +39,6 @@ export default class App extends Component {
       <View style={{ flex: 1, justifyContent: 'center' }}>
         {/* Header Title */}
         <View style={{ flex: 2 }}>
-        <View style={{ flex: 8 }}>
-        </View>
         <View style={{ flex: 17 }}>
         <HeaderTitle />
         </View>

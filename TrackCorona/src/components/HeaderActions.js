@@ -13,6 +13,7 @@ export default class HeaderActions extends Component {
       constructor(props) {
         super(props);
         this.getUserData = this.getUserData.bind(this);
+        this.updateStatus = this.updateStatus.bind(this);
         this.getUserData();
         setInterval(() => {
             this.getUserData();
@@ -24,7 +25,11 @@ export default class HeaderActions extends Component {
         let data = await response.json();
         if (data && data.recordset && data.recordset[0]) {
           this.setState({ status: data.recordset[0].Status })
+          console.log( data.recordset[0].Status);
         }
+      }
+      updateStatus = function(updatedStatus){
+          this.setState({status:updatedStatus});
       }
       render() {
           let status = this.state.status;
@@ -32,10 +37,10 @@ export default class HeaderActions extends Component {
         return (
           <View style={{ flex: 1,flexDirection: 'row',justifyContent:'center'}}>
                 <View style={{ flex: 1,justifyContent:'center'}}> 
-                <HeaderStatus status ={status}/>
+                <HeaderStatus status ={status} />
               </View>
               <View style={{ flex: 1,justifyContent:'center'}}> 
-                <CarryVirus isCarrier={isCarrier}/> 
+                <CarryVirus isCarrier={isCarrier} callbackFunc = {this.updateStatus}/> 
               </View  >
           </View>
         );

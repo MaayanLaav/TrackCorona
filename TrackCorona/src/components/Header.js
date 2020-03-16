@@ -4,13 +4,16 @@ export default class HeaderTitle extends Component {
    
       render() {
         return (
-          <View style={{ flex: 1,flexDirection: 'row',justifyContent:'center'}}>
-        <Image
-          style={{width: 50, height: 50}}
-          source={require('../assests/images/pakar.png')}
-          />
-              <View style={{ flex:1,backgroundColor:'#578feb',flexDirection: 'row',justifyContent:'center'}}>
-              <Text style={{color:'white',fontWeight:'bold',fontSize:40,fontStyle:'italic'}}>יחד</Text>
+          <View style={{ flex: 1,justifyContent:'center'}}>
+       <View style={{flex:1}}>
+
+       </View>
+              <View style={{ flex:1,backgroundColor:'#578feb',flexDirection: 'row-reverse',justifyContent:'center',alignItems: 'center'}}>
+                <Image
+                style={{width: 50, height: 50}}
+                source={require('../assests/images/pakar.png')}
+                />
+                <Text style={{color:'white',fontWeight:'bold',fontSize:40}}> TrackCorona</Text>
               </View>
           </View>
         );
