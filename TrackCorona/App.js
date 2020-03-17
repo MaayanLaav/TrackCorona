@@ -9,6 +9,8 @@ import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { View, Text } from 'react-native';
 import Navigator from './src/components/Navigator';
+import FindMe from './src/components/FindMe';
+import MapHealthMinistry from './src/components/MapHealthMinistry';
 // const bottomTabNavigator = createBottomTabNavigator(
 //   {
 //     Home:  {
@@ -46,6 +48,8 @@ export default class App extends Component {
           <HeaderActions />
         </View>
         <View style={{ flex: 9, justifyContent: 'center' }}>
+        <MapHealthMinistry/>
+          <FindMe/>
         </View>
         <View style={{ flex: 2, justifyContent: 'center' }}>
           <Navigator />

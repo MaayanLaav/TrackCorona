@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
       alignItems: "center",
       borderRadius: 50
     },
-
     text: {
       color: 'white',
       fontWeight: 'bold'
@@ -49,7 +48,7 @@ export default class CarryVirus extends Component {
           }
           else{
             this.setState({
-                disable: true,
+                disable: false,
                 text:"מצהיר שנדבקתי"
               })
           }

@@ -46,24 +46,8 @@ export default class FindMe extends Component {
         }
     };
     render() {
-        let text = '';
-        let longit = '';
-        let latit = '';
-        let deviceName = this.state.deviceName ? this.state.deviceName : '';
-        if (this.state.errorMessage) {
-            text = this.state.errorMessage;
-        }
-        else if (this.state.location) {
-            text = JSON.stringify(this.state.location);
-            longit = this.state.location.coords.longitude
-            latit = this.state.location.coords.latitude
-        }
         return (
-            <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-                <Text>שלום {deviceName} </Text>
-                <Text>קו אורך: {longit}</Text>
-                <Text>קו רוחב: {latit}</Text>
-            </View>
+            <Text></Text>
         );
     }
 }
