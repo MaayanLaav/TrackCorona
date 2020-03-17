@@ -1,0 +1,51 @@
+/****** Object:  Table [dbo].[TrackAppUsers]    Script Date: 17/03/2020 16:40:40 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TrackAppUsers](
+	[DeviceName] [nvarchar](100) NULL,
+	[Status] [int] NULL,
+	[DateOfDiagnosis] [datetime2](7) NULL,
+	[ExposureTime] [float] NULL
+) ON [PRIMARY]
+GO
+
+
+
+/****** Object:  Table [dbo].[InfectedUsers]    Script Date: 17/03/2020 16:40:31 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[InfectedUsers](
+	[DeviceName] [nvarchar](100) NULL,
+	[IsRecover] [bit] NULL,
+	[DateOfDiagnosis] [datetime2](7) NULL
+) ON [PRIMARY]
+GO
+
+
+
+/****** Object:  Table [dbo].[DataVirus]    Script Date: 17/03/2020 16:40:24 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[DataVirus](
+	[DeviceName] [nvarchar](100) NULL,
+	[Longitude] [float] NULL,
+	[Latitude] [float] NULL,
+	[Datetime] [datetime2](7) NULL
+) ON [PRIMARY]
+GO
+
+
+
+
