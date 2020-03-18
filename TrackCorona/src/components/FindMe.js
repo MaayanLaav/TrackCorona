@@ -46,8 +46,8 @@ export default class FindMe extends Component {
         }
     };
     render() {
-        return (
-            <Text></Text>
+        return(
+            <View style={{height:0, width:0}}></View>
         );
     }
 }
