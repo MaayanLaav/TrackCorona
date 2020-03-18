@@ -40,7 +40,7 @@ export default class FindMe extends Component {
                   longitude: location.coords.longitude,
                   latitude: location.coords.latitude,
                   timestamp: location.timestamp,
-                  deviceName: this.state.deviceName
+                  deviceName: this.state.deviceName.replace(/\s/g, '')
                 }),
               });
         }

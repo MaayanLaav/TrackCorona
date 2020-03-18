@@ -21,7 +21,7 @@ export default class HeaderActions extends Component {
 
   }
   getUserData = async function () {
-    let response = await fetch(serverUrl + 'getUserDetails/' + this.state.userName);
+    let response = await fetch(serverUrl + 'getUserDetails/' + this.state.userName.replace(/\s/g, ''));
     let data = await response.json();
     if (data && data.recordset && data.recordset[0]) {
       this.setState({ status: data.recordset[0].Status })

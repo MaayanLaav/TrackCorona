@@ -74,7 +74,7 @@ export default class CarryVirus extends Component {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        deviceName: this.state.deviceName,
+                        deviceName: this.state.deviceName.replace(/\s/g, ''),
                         datetime: new Date().toLocaleString("en-US", {timeZone: "Asia/Jerusalem"})
                     }),
                 }).then((response) => {
