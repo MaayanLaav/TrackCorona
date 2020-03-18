@@ -23,17 +23,17 @@ export default class Navigator extends Component {
                     </View>
                     <Text style={styles.buttonText}>טלגרם</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonContainer} onPress={() => Linking.openURL('https://www.health.gov.il/Subjects/disease/corona/Pages/default.aspx')}>
+                <TouchableOpacity style={styles.buttonContainer} onPress={() => Linking.openURL('https://info.oref.org.il/')}>
                     <View style={styles.button}>
                         <FontAwesomeIcon icon={faLightbulb} size={22} color={'orange'} />
                     </View>
-                    <Text style={styles.buttonText}>עדכונים</Text>
+                    <Text style={styles.buttonText}>הנחיות</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonContainer} onPress={() => this.props.navigation.navigate('Map')}>
+                <TouchableOpacity style={styles.buttonContainer} onPress={() => Linking.openURL('https://imoh.maps.arcgis.com/apps/webappviewer/index.html?id=20ded58639ff4d47a2e2e36af464c36e&locale=he&/')}>
                     <View style={styles.button}>
                         <FontAwesomeIcon icon={faSearch} size={22} color={'orange'} />
                     </View>
-                    <Text style={styles.buttonText}>מפה</Text>
+                    <Text style={styles.buttonText}>מפת חשיפה</Text>
                 </TouchableOpacity>
             </View>
         );

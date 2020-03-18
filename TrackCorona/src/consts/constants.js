@@ -1,1 +1,1 @@
-export const serverUrl = 'maayanAmarLi';
+export const serverUrl = 'https://coronapakar.azurewebsites.net/';

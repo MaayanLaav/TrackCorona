@@ -42,26 +42,19 @@ export default class MapScreen extends Component {
 
   render() {
     return (
-      <View style={{flex:1}}>
-        <View style={{ flex: 17 }}>
-          <View style={styles.container}>
-            <MapView style={styles.map}
-              region={{ latitude: 32.098260, longitude: 34.925513, latitudeDelta: 0.01, longitudeDelta: 0.01 }}
-            >
-              {this.state.markers.map(marker => (
-                <MapView.Marker
-                  coordinate={marker.coordinates}
-                  title={marker.title}
-                  description={marker.description}
-                  pinColor={marker.pinColor}
-                />
-              ))}
-            </MapView>
-          </View>
-        </View>
-        <View style={{ flex: 2, width: "100%", justifyContent: 'center' }}>
-          <Navigator navigation={this.props.navigation} />
-        </View>
+      <View style={styles.container}>
+        <MapView style={styles.map}
+          region={{ latitude: 32.098260, longitude: 34.925513, latitudeDelta: 0.01, longitudeDelta: 0.01 }}
+        >
+          {this.state.markers.map(marker => (
+            <MapView.Marker
+              coordinate={marker.coordinates}
+              title={marker.title}
+              description={marker.description}
+              pinColor={marker.pinColor}
+            />
+          ))}
+        </MapView>
       </View>
     );
   }

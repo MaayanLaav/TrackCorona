@@ -15,13 +15,16 @@ export default class App extends Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', backgroundColor: '#333333' }}>
-        <View style={{ flex: 19 }}>
+        <View style={{ flex: 17 }}>
           <NavigationContainer>
             <Stack.Navigator initialRouteName="Home">
               <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
               <Stack.Screen name="Map" component={MapScreen} options={{headerShown: false}}/>
             </Stack.Navigator>
           </NavigationContainer>
+        </View>
+        <View style={{ flex: 2, width:"100%", justifyContent: 'center' }}>
+          <Navigator/>
         </View>
         <FindMe />
       </View>
