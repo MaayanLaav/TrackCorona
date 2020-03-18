@@ -9,6 +9,7 @@ export default class HeaderActions extends Component {
     userName: Device.deviceName,
     // isCarrier: false,
     status: 0,
+    dateOfDiagnosis: new Date().toLocaleString("en-US", { timeZone: "Asia/Jerusalem" }),
   }
   constructor(props) {
     super(props);
@@ -24,12 +25,12 @@ export default class HeaderActions extends Component {
     let response = await fetch(serverUrl + 'getUserDetails/' + this.state.userName.replace(/\s/g, ''));
     let data = await response.json();
     if (data && data.recordset && data.recordset[0]) {
-      this.setState({ status: data.recordset[0].Status })
+      this.setState({ status: data.recordset[0].Status,dateOfDiagnosis:data.recordset[0].Datetime})
       console.log(data.recordset[0].Status);
     }
   }
   updateStatus = function (updatedStatus) {
-    this.setState({ status: updatedStatus });
+    this.setState({ status: updatedStatus,dateOfDiagnosis: new Date().toLocaleString("en-US", { timeZone: "Asia/Jerusalem" })});
   }
   render() {
     let status = this.state.status;

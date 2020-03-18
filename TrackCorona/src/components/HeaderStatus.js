@@ -5,6 +5,7 @@ import { faHeartbeat, faExclamationTriangle,faExclamationCircle, faTemperatureHi
 export default class HeaderStatus extends Component {
   state = {
     status: 0,
+    dateOfDiagnosis:new Date().toLocaleString("en-US", { timeZone: "Asia/Jerusalem" })
   };
   constructor(props) {
     super(props);
@@ -24,13 +25,14 @@ export default class HeaderStatus extends Component {
     let colorIcon = 'green';
     switch (status) {
       case  1: {
-        text = 'מעגל שני'
+        text = 'נחשפת לאזרחים בעלי פוטנציאל להיות נשאים של הנגיף, הנך מתבקש להזהר ולהקטין חשיפתך'
+        dateText = 
         iconName = faExclamationTriangle
         colorIcon = 'orange';
       }
         break;
       case  2: {
-        text = 'מעגל ראשון';
+        text = 'נחשפת לנגיף הקורונה, הנך מתבקש להכנס לבידוד ולדווח למשרד הבריאות';
         iconName = faExclamationCircle;
         colorIcon = 'red'
       }
