@@ -23,11 +23,12 @@ export default class Navigator extends Component {
                     </View>
                     <Text style={styles.buttonText}>טלגרם</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonContainer} onPress={() => Linking.openURL('https://info.oref.org.il/')}>
-                    <View style={styles.button}>
-                        <FontAwesomeIcon icon={faLightbulb} size={22} color={'orange'} />
+
+                <TouchableOpacity style={{ flex: 1, justifyContent:"center", alignItems:"center" }} onPress = {() => Linking.openURL('https://info.oref.org.il/')}>
+                    <View style={{backgroundColor: "white", borderRadius: 1000, height: 40, width: 40, justifyContent:"center", alignItems:"center",}}>
+                        <FontAwesomeIcon icon={ faLightbulb } size={ 22} color={'orange'} />
                     </View>
-                    <Text style={styles.buttonText}>הנחיות</Text>
+                    <Text style={{color: "white", fontWeight: "bold"}}>הנחיות</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.buttonContainer} onPress={() => Linking.openURL('https://imoh.maps.arcgis.com/apps/webappviewer/index.html?id=20ded58639ff4d47a2e2e36af464c36e&locale=he&/')}>
                     <View style={styles.button}>

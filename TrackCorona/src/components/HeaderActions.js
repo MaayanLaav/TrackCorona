@@ -7,29 +7,25 @@ import HeaderStatus from './HeaderStatus';
 export default class HeaderActions extends Component {
   state = {
     userName: Device.deviceName,
-    // isCarrier: false,
+    //isCarrier: false,
     status: 0,
+    dateOfDiagnosis: new Date().toLocaleString("en-US", { timeZone: "Asia/Jerusalem" }),
   }
   constructor(props) {
     super(props);
-    this.getUserData = this.getUserData.bind(this);
-    this.updateStatus = this.updateStatus.bind(this);
-    this.getUserData();
-    setInterval(() => {
-      this.getUserData();
-    }, 30000);
-
+    this.state.userName = this.props.userName;
+    this.state.status = this.props.status;
+    this.state.dateOfDiagnosis = this.props.dateOfDiagnosis;
   }
-  getUserData = async function () {
-    let response = await fetch(serverUrl + 'getUserDetails/' + this.state.userName.replace(/\s/g, ''));
-    let data = await response.json();
-    if (data && data.recordset && data.recordset[0]) {
-      this.setState({ status: data.recordset[0].Status })
-      console.log(data.recordset[0].Status);
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.status !== prevProps.status) {
+      console.log('HeaderStatus:' + this.props.status);
+      this.setState({ status: this.props.status })
     }
   }
   updateStatus = function (updatedStatus) {
-    this.setState({ status: updatedStatus });
+    this.setState({ status: updatedStatus,dateOfDiagnosis: new Date().toLocaleString("en-US", { timeZone: "Asia/Jerusalem" })});
   }
   render() {
     let status = this.state.status;
