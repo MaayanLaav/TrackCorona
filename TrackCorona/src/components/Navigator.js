@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, Alert, StyleSheet } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faHome, faSearch, faComment, faPaperPlane, faLightbulb } from '@fortawesome/free-solid-svg-icons'
+import { faFirstAid, faSearch, faComment, faPaperPlane, faLightbulb } from '@fortawesome/free-solid-svg-icons'
 import { Linking } from 'expo';
 
 export default class Navigator extends Component {
@@ -28,13 +28,13 @@ export default class Navigator extends Component {
                     <View style={{backgroundColor: "white", borderRadius: 1000, height: 40, width: 40, justifyContent:"center", alignItems:"center",}}>
                         <FontAwesomeIcon icon={ faLightbulb } size={ 22} color={'orange'} />
                     </View>
-                    <Text style={{color: "white", fontWeight: "bold"}}>הנחיות</Text>
+                    <Text style={{color: "white", fontWeight: "bold"}}>פורטל חירום</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonContainer} onPress={() => Linking.openURL('https://imoh.maps.arcgis.com/apps/webappviewer/index.html?id=20ded58639ff4d47a2e2e36af464c36e&locale=he&/')}>
+                <TouchableOpacity style={styles.buttonContainer} onPress={() => Linking.openURL('https://www.health.gov.il/Subjects/disease/corona/Pages/default.aspx')}>
                     <View style={styles.button}>
-                        <FontAwesomeIcon icon={faSearch} size={22} color={'orange'} />
+                        <FontAwesomeIcon icon={faFirstAid} size={22} color={'orange'} />
                     </View>
-                    <Text style={styles.buttonText}>מפת חשיפה</Text>
+                    <Text style={styles.buttonText}>הנחיות </Text>
                 </TouchableOpacity>
             </View>
         );

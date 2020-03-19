@@ -7,6 +7,7 @@ import FindMe from './src/components/FindMe';
 import * as Device from 'expo-device';
 import { serverUrl } from './src/consts/constants';
 
+console.disableYellowBox = true;
 
 export default class App extends Component {
   state = {
@@ -42,9 +43,13 @@ export default class App extends Component {
         <View style={{ flex: 3, justifyContent: 'center', alignItems: "center", backgroundColor: '#333333' }}>
           <HeaderActions userName={this.state.deviceName} status={this.state.status} dateOfDiagnosis={this.dateOfDiagnosis} />
         </View>
-        <View style={{ flex: 9, justifyContent: 'center' }}>
+        <View style={{ flex: 9, justifyContent: 'center', alignItems:'center' }}>
         {/* <MapHealthMinistry/> */}
-          <FindMe/>
+          <View style={{height: '90%', width: 350, justifyContent: 'center', alignItems: "center", backgroundColor: 'white', borderRadius: 25  }}>
+           <View style={{width: 320, height:'90%'}}>
+              <FindMe/>
+            </View> 
+          </View>
         </View>
         <View style={{ flex: 2, justifyContent: 'center' }}>
           <Navigator />

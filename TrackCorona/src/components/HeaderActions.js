@@ -13,6 +13,7 @@ export default class HeaderActions extends Component {
   }
   constructor(props) {
     super(props);
+    this.updateStatus = this.updateStatus.bind(this);
     this.state.userName = this.props.userName;
     this.state.status = this.props.status;
     this.state.dateOfDiagnosis = this.props.dateOfDiagnosis;
@@ -31,7 +32,7 @@ export default class HeaderActions extends Component {
     let status = this.state.status;
     let isCarrier = status == 3;
     return (
-      <View style={{ flex: 1, width: 320, marginTop: -30, borderRadius:25, justifyContent: 'center', alignItems: "center" ,backgroundColor: "white"}}>
+      <View style={{ flex: 1, width: 350, marginTop: -30, borderRadius:25, justifyContent: 'center', alignItems: "center" ,backgroundColor: "white"}}>
         <View style={{ flex: 3}} >
           <HeaderStatus status={status} />
         </View>
