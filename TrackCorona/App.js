@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import HeaderTitle from './src/components/Header';
 import HeaderActions from './src/components/HeaderActions';
 import { View, Text } from 'react-native';
@@ -35,7 +34,6 @@ export default class App extends Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', backgroundColor: '#333333' }}>
-
         {/* Header Title */}
         <View style={{ flex:5 }}>
             <HeaderTitle />
@@ -48,7 +46,10 @@ export default class App extends Component {
         {/* <MapHealthMinistry/> */}
           <FindMe/>
         </View>
-        <FindMe />
+        <View style={{ flex: 2, justifyContent: 'center' }}>
+          <Navigator />
+        </View>
+
       </View>
     );
   }
