@@ -14,7 +14,7 @@ export default class App extends Component {
     userName: Device.deviceName,
     //isCarrier: false,
     status: 0,
-    dateOfDiagnosis: new Date().toLocaleString("en-US", { timeZone: "Asia/Jerusalem" }),
+    dateOfDiagnosis: null,
   }
     constructor(props) {
       super(props);
