@@ -4,14 +4,17 @@ import * as Permissions from 'expo-permissions';
 import * as Location from 'expo-location';
 import * as Device from 'expo-device';
 import {serverUrl} from '../consts/constants';
+import PakarMap from '../components/PakarMap';
 export default class FindMe extends Component {
     state = {
-        location: null,
+        longitude: null,
+        latitude:null,
         errorMessage: null,
         deviceName: Device.deviceName,
     };
     constructor(props) {
         super(props);
+        this.findCurrentLocationAsync();
         setInterval(() => {
            this.findCurrentLocationAsync()
         }, 10000);
@@ -29,7 +32,7 @@ export default class FindMe extends Component {
             console.log('Longitude ' + location.coords.longitude)
             console.log('Latitude ' + location.coords.latitude)
             console.log('TimeStamp ' + location.timestamp)
-            this.setState({ location });
+            this.setState({ longitude: location.coords.longitude, latitude:location.coords.latitude });
             fetch(serverUrl + 'insertLocation', {
                 method: 'POST',
                 headers: {
@@ -46,8 +49,14 @@ export default class FindMe extends Component {
         }
     };
     render() {
+        var latToForward = this.state.latitude;
+        var lonToForward = this.state.longitude;
+        console.log('latToForward: ' + latToForward);
+        console.log('lonToForward: ' + lonToForward);
         return (
-            <Text></Text>
+            <View style={{flex:1}}>
+                <PakarMap latitude = {latToForward} longitude={lonToForward}/>
+            </View>
         );
     }
 }
