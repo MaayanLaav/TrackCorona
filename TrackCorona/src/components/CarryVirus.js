@@ -5,16 +5,16 @@ import {serverUrl} from '../consts/constants';
 
 const styles = StyleSheet.create({
     disableInfectedButton: {
-      height: 40, 
-      width: 150,  
+      height: 30, 
+      width: 130,  
       backgroundColor:"#bababa", 
       justifyContent: "center", 
       alignItems: "center",
       borderRadius: 50
     },
     enableInfectedButton: {
-      height: 40, 
-      width: 150,  
+      height: 30, 
+      width: 130,  
       backgroundColor:"#ff5f2e", 
       justifyContent: "center", 
       alignItems: "center",

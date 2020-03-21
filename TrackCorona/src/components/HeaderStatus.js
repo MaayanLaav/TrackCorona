@@ -25,11 +25,13 @@ export default class HeaderStatus extends Component {
     let exposureTime = '';
     let status = this.props.status
     let text = 'בריא'
+    let subtext = 'במידה ועברת בדיקת קורונה, וקיבלת תוצאה חיובית - אנא לחץ על כפתור "מצהיר שנדבקתי"';
     let iconName = faHeartbeat;
     let colorIcon = 'green';
     switch (status) {
       case 1: {
-        text = 'נחשפת לאזרחים בעלי פוטנציאל להיות נשאים של הנגיף, הנך מתבקש להזהר ולהקטין חשיפתך'
+        text = 'מעגל שני'
+        subtext = 'נחשפת לאזרחים בעלי פוטנציאל להיות נשאים של הנגיף, הנך מתבקש להזהר ולהקטין חשיפתך'
         iconName = faExclamationTriangle
         colorIcon = 'orange';
         if (this.state.dateOfDiagnosis) {
@@ -44,7 +46,8 @@ export default class HeaderStatus extends Component {
       }
         break;
       case 2: {
-        text = 'נחשפת לנגיף הקורונה, הנך מתבקש להכנס לבידוד ולדווח למשרד הבריאות';
+        text = 'מעגל ראשון';
+        subtext = 'נחשפת לנגיף הקורונה, הנך מתבקש להכנס לבידוד ולדווח למשרד הבריאות';
         iconName = faExclamationCircle;
         colorIcon = 'red'
         console.log(this.state.dateOfFirstExposure);
@@ -79,20 +82,31 @@ export default class HeaderStatus extends Component {
       }
         break;
       case 3: {
-        text = 'נושא את הנגיף'
+        text = 'נשא/ית הנגיף',
+        subtext = 'אנא השמע להנחיות משרד הבריאות'
         colorIcon = 'red'
         iconName = faTemperatureHigh;
       }
-        break;
+        break; 
       default: {
       }
     }
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <FontAwesomeIcon icon={iconName} size={40} color={colorIcon} />
-        <Text style={{ fontSize: 12 }}> {text} </Text>
-        <Text style={{ fontSize: 12 }}>  {isolationDate} </Text>
-        <Text style= {{fontSize:12}}> {exposureTime} </Text>
+      <View style={{ flex:1, alignItems:"center"}}>
+        <View style={{ flex: 1,flexDirection: "row-reverse", alignItems:"center", }}>
+          <FontAwesomeIcon icon={iconName} size={38} color={colorIcon} />
+          <View style={{width:10}}></View>
+          <View>
+            <Text style= {{fontSize:11, color: "grey"}} >הסטטוס שלך</Text>
+            <Text style={{ fontSize: 18, fontWeight: "bold"  }}>{text}</Text>
+          </View>
+        </View>
+        <View style={{flex:1, alignItems:"center", justifyContent: "center"}}>
+          <Text style={{fontSize: 12, textAlign:"center", fontWeight: "bold",}}>{subtext}</Text>
+          <View style={{height:5}}></View>
+          <Text style={{ fontSize: 11 }}>{isolationDate}</Text>
+          <Text style= {{fontSize:11}}>{exposureTime}</Text>
+        </View>
       </View>
     );
   }

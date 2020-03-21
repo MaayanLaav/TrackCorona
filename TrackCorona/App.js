@@ -37,11 +37,11 @@ export default class App extends Component {
     return (
       <View style={{ flex: 1, justifyContent: 'center', backgroundColor: '#333333' }}>
         {/* Header Title */}
-        <View style={{ flex: 5 }}>
+        <View style={{ flex: 4 }}>
           <HeaderTitle />
         </View>
         {/* Header Status and Actions */}
-        <View style={{ flex: 3, justifyContent: 'center', alignItems: "center", backgroundColor: '#333333' }}>
+        <View style={{ flex: 4, justifyContent: 'center', alignItems: "center", backgroundColor: '#333333' }}>
           <HeaderActions userName={this.state.deviceName} status={this.state.status} dateOfDiagnosis={this.state.dateOfDiagnosis} dateOfFirstExposure={this.state.dateOfFirstExposure} />
         </View>
         <View style={{ flex: 9, justifyContent: 'center', alignItems: 'center' }}>

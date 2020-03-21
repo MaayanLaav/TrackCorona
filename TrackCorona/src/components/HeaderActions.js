@@ -38,8 +38,8 @@ export default class HeaderActions extends Component {
         <View style={{ flex: 3 }} >
           <HeaderStatus status={status} dateOfDiagnosis={dateOfDiagnosis} dateOfFirstExposure={this.state.dateOfFirstExposure} />
         </View>
-        <View style={{ flex: 2 }} >
-          {/* <CarryVirus isCarrier={isCarrier} callbackFunc={this.updateStatus} /> */}
+        <View style={{ flex: 1, }} >
+           <CarryVirus isCarrier={isCarrier} callbackFunc={this.updateStatus} /> 
         </View>
       </View>
     );
