@@ -10,7 +10,7 @@ export default class HeaderTitle extends Component {
           source={require('../assests/images/pakar.png')}
         />
         <View style={{width:20}}></View>
-        <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 40 }}>Coronen</Text>
+        <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 40 }}>Pakarona</Text>
       </View>
     );
   }
