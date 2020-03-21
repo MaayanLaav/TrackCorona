@@ -5,20 +5,32 @@ import * as Location from 'expo-location';
 import * as Device from 'expo-device';
 import {serverUrl} from '../consts/constants';
 import PakarMap from '../components/PakarMap';
+import { ThemeColors } from 'react-navigation';
 export default class FindMe extends Component {
     state = {
         longitude: null,
         latitude:null,
         errorMessage: null,
         deviceName: Device.deviceName,
+        infectedLat: null,
+        infectedLon:null,
+        typeOfPoint:'myLocation'
     };
     constructor(props) {
         super(props);
+        this.state.infectedLat = this.props.infectedLat;
+        this.state.infectedLon = this.props.infectedLon;
+        console.log(this.state.infectedLat);
         this.findCurrentLocationAsync();
         setInterval(() => {
            this.findCurrentLocationAsync()
-        }, 10000);
+        }, 20000);
     }
+    componentDidUpdate(prevProps) {
+        if (prevProps.infectedLat != this.props.infectedLat || prevProps.infectedLon != this.props.infectedLon){
+            this.setState({infectedLat:this.props.infectedLat, infectedLon: this.props.infectedLon,typeOfPoint:'infectedPoint'});
+        }
+      }
     findCurrentLocationAsync = async function () {
         let { status } = await Permissions.askAsync(Permissions.LOCATION)
         if (status !== 'granted') {
@@ -45,12 +57,20 @@ export default class FindMe extends Component {
               });
         }
     };
+    changeMyTypeOfPoint = function(newType){
+        this.setState({typeOfPoint: newType});
+    }
     render() {
         var latToForward = this.state.latitude;
         var lonToForward = this.state.longitude;
+        if (this.state.infectedLat && this.state.typeOfPoint == 'infectedPoint'){
+            latToForward = this.state.infectedLat
+            lonToForward = this.state.infectedLon
+        }
+        console.log(this.state.typeOfPoint);
         return (
             <View style={{flex:1}}>
-                <PakarMap latitude = {latToForward} longitude={lonToForward}/>
+                <PakarMap latitude={latToForward} longitude={lonToForward} typeOfPoint={this.state.typeOfPoint}/>
             </View>
 
         );
