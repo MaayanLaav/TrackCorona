@@ -16,6 +16,7 @@ export default class App extends Component {
     status: 0,
     dateOfDiagnosis: null,
     dateOfFirstExposure: null,
+    infectedPoint:null
   }
   constructor(props) {
     super(props);
@@ -29,10 +30,16 @@ export default class App extends Component {
     let response = await fetch(serverUrl + 'getUserDetails/' + this.state.userName.replace(/\s/g, ''));
     let data = await response.json();
     if (data && data.recordset && data.recordset[0]) {
-      this.setState({ status: data.recordset[0].Status, dateOfDiagnosis: data.recordset[0].DateOfDiagnosis, dateOfFirstExposure: data.recordset[0].DateOfFirstExposure });
+      this.setState({ status: data.recordset[0].Status, dateOfDiagnosis: data.recordset[0].DateOfDiagnosis, dateOfFirstExposure: data.recordset[0].DateOfFirstExposure,infectedPoint:data.recordset[0].infectedPoint});
     }
   }
   render() {
+    let infectedLat = null;
+    let infectedLon = null;
+    if (this.state.infectedPoint){
+      infectedLat = this.state.infectedPoint.Latitude;
+      infectedLon = this.state.infectedPoint.Longitude;
+    }
     return (
       <View style={{ flex: 1, justifyContent: 'center', backgroundColor: '#333333' }}>
         {/* Header Title */}
@@ -47,7 +54,7 @@ export default class App extends Component {
           {/* <MapHealthMinistry/> */}
           <View style={{ height: '90%', width: 350, justifyContent: 'center', alignItems: "center", backgroundColor: 'white', borderRadius: 25 }}>
             <View style={{ width: 320, height: '90%' }}>
-              <FindMe />
+              <FindMe infectedLat = {infectedLat} infectedLon= {infectedLon}  />
             </View>
           </View>
         </View>
